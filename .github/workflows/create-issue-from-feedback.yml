@@ -30,24 +30,26 @@ jobs:
               return;
             }
 
-            const issueBody = `## フィードバック内容
-
-**対象/件名**: ${word}
-
-**詳細/期待内容**: ${expectation}
-
-**コメント**: ${comment}
-
----
-_スプレッドシート行: ${rowIndex}_
-_このIssueは自動作成されました。内容を確認し、問題なければ「approved」ラベルを付与してください。_`;
+            const issueBody = [
+              '## フィードバック内容',
+              '',
+              '**対象/件名**: ' + word,
+              '',
+              '**詳細/期待内容**: ' + expectation,
+              '',
+              '**コメント**: ' + comment,
+              '',
+              '---',
+              '_スプレッドシート行: ' + rowIndex + '_',
+              '_このIssueは自動作成されました。内容を確認し、問題なければ「approved」ラベルを付与してください。_'
+            ].join('\n');
 
             const issue = await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `【検索不具合】${word}`,
+              title: '【検索不具合】' + word,
               body: issueBody,
               labels: ['word_search']
             });
 
-            console.log(`Created issue #${issue.data.number}: ${issue.data.html_url}`);
+            console.log('Created issue #' + issue.data.number + ': ' + issue.data.html_url);
