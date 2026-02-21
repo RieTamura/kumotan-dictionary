@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-02-04T09:17:42.130Z",
+  "updated_at": "2026-02-21T23:00:21.390Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -9,6 +9,16 @@
       "corrected_meaning": "促す, 引き起こす, プロンプト",
       "source_issue": 2,
       "approved_at": "2026-02-04T09:17:42.129Z"
+    },
+    {
+      "id": "override_1771714821389",
+      "type": "correction",
+      "word": "imagination",
+      "corrected_meaning": "想像、想像力、(作家などの)創造力、構想力、想像(の所産)、空想",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 3,
+      "approved_at": "2026-02-21T23:00:21.389Z"
     }
   ]
 }
