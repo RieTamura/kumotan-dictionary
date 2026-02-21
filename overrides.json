@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-02-21T23:00:21.390Z",
+  "updated_at": "2026-02-21T23:03:25.079Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -19,6 +19,16 @@
       "post_url": null,
       "source_issue": 3,
       "approved_at": "2026-02-21T23:00:21.389Z"
+    },
+    {
+      "id": "override_1771715005078",
+      "type": "correction",
+      "word": "perfect",
+      "corrected_meaning": "完全な、申し分のない、理想的な、そろっている、欠けていない、正確な、寸分たがわぬ、純粋の、まったくの、(…に)最適の",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 4,
+      "approved_at": "2026-02-21T23:03:25.078Z"
     }
   ]
 }
