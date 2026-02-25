@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-02-21T23:03:25.079Z",
+  "updated_at": "2026-02-25T09:22:23.866Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -29,6 +29,16 @@
       "post_url": null,
       "source_issue": 4,
       "approved_at": "2026-02-21T23:03:25.078Z"
+    },
+    {
+      "id": "override_1772011343865",
+      "type": "correction",
+      "word": "it",
+      "corrected_meaning": "それ",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 5,
+      "approved_at": "2026-02-25T09:22:23.865Z"
     }
   ]
 }
