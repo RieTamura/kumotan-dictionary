@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-03-07T03:14:50.117Z",
+  "updated_at": "2026-03-07T03:16:28.665Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -59,6 +59,16 @@
       "post_url": null,
       "source_issue": 7,
       "approved_at": "2026-03-07T03:14:50.115Z"
+    },
+    {
+      "id": "override_1772853388664",
+      "type": "correction",
+      "word": "very",
+      "corrected_meaning": "とても、まさに、極めて、大変、非常に",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 8,
+      "approved_at": "2026-03-07T03:16:28.664Z"
     }
   ]
 }
