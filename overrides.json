@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-03-07T03:16:28.665Z",
+  "updated_at": "2026-03-07T03:21:01.136Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -69,6 +69,16 @@
       "post_url": null,
       "source_issue": 8,
       "approved_at": "2026-03-07T03:16:28.664Z"
+    },
+    {
+      "id": "override_1772853661135",
+      "type": "correction",
+      "word": "also",
+      "corrected_meaning": "～もまた、～も同様に、～もやはり",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 9,
+      "approved_at": "2026-03-07T03:21:01.135Z"
     }
   ]
 }
