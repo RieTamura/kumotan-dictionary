@@ -1,5 +1,14 @@
 {
   "version": "1.0.0",
-  "updated_at": "",
-  "entries": []
+  "updated_at": "2026-03-22T09:21:27.988Z",
+  "entries": [
+    {
+      "id": "chunk_1774171287987",
+      "phrase": "by the way",
+      "meaning_ja": "ところで",
+      "example": "By the way, did you see the news?",
+      "source_issue": 60,
+      "approved_at": "2026-03-22T09:21:27.987Z"
+    }
+  ]
 }
