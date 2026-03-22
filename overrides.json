@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-02-04T09:17:42.130Z",
+  "updated_at": "2026-03-07T03:21:01.136Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -9,6 +9,76 @@
       "corrected_meaning": "促す, 引き起こす, プロンプト",
       "source_issue": 2,
       "approved_at": "2026-02-04T09:17:42.129Z"
+    },
+    {
+      "id": "override_1771714821389",
+      "type": "correction",
+      "word": "imagination",
+      "corrected_meaning": "想像、想像力、(作家などの)創造力、構想力、想像(の所産)、空想",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 3,
+      "approved_at": "2026-02-21T23:00:21.389Z"
+    },
+    {
+      "id": "override_1771715005078",
+      "type": "correction",
+      "word": "perfect",
+      "corrected_meaning": "完全な、申し分のない、理想的な、そろっている、欠けていない、正確な、寸分たがわぬ、純粋の、まったくの、(…に)最適の",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 4,
+      "approved_at": "2026-02-21T23:03:25.078Z"
+    },
+    {
+      "id": "override_1772011343865",
+      "type": "correction",
+      "word": "it",
+      "corrected_meaning": "それ",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 5,
+      "approved_at": "2026-02-25T09:22:23.865Z"
+    },
+    {
+      "id": "override_1772853102516",
+      "type": "correction",
+      "word": "beautiful",
+      "corrected_meaning": "美しい、素晴らしい、見事な、すてきな",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 6,
+      "approved_at": "2026-03-07T03:11:42.516Z"
+    },
+    {
+      "id": "override_1772853290115",
+      "type": "correction",
+      "word": "they",
+      "corrected_meaning": "彼ら、彼女ら、それら",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 7,
+      "approved_at": "2026-03-07T03:14:50.115Z"
+    },
+    {
+      "id": "override_1772853388664",
+      "type": "correction",
+      "word": "very",
+      "corrected_meaning": "とても、まさに、極めて、大変、非常に",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 8,
+      "approved_at": "2026-03-07T03:16:28.664Z"
+    },
+    {
+      "id": "override_1772853661135",
+      "type": "correction",
+      "word": "also",
+      "corrected_meaning": "～もまた、～も同様に、～もやはり",
+      "part_of_speech": null,
+      "post_url": null,
+      "source_issue": 9,
+      "approved_at": "2026-03-07T03:21:01.135Z"
     }
   ]
 }

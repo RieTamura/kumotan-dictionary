@@ -104,6 +104,24 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: add dictionary override from issue #${{ github.event.issue.number }}"
           git push
 
+  close-approved-issue:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Close Issue with approved label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });
+
   # フローB: search-improvementラベルが付与されたときにPRを自動作成
   create-search-improvement-pr:
     if: github.event.label.name == 'search-improvement' && contains(github.event.issue.labels.*.name, 'word_search')
