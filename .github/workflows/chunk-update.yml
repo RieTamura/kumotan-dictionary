@@ -1,0 +1,96 @@
+# チャンク辞書自動更新ワークフロー
+# chunk ラベルの付いた Issue に「approved」ラベルが付与されたとき、
+# chunks.json に自動でチャンクエントリを追加します。
+
+name: Chunk Dictionary Auto Update
+
+on:
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: chunk-update
+  cancel-in-progress: false
+
+jobs:
+  update-chunks:
+    # 条件: 「approved」ラベルが付与され、かつ「chunk」ラベルを持つ Issue
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'chunk')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse Issue and Update chunks.json
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+
+            // Issue本文からフィールドを抽出
+            // フォーマット例:
+            //   - **フレーズ**: by the way
+            //   - **日本語の意味**: ところで
+            //   - **例文**: By the way, did you see the news?
+            const phraseMatch = body.match(/\*\*フレーズ\*\*:\s*(.+)/);
+            const meaningMatch = body.match(/\*\*日本語の意味\*\*:\s*(.+)/);
+            const exampleMatch = body.match(/\*\*例文\*\*:\s*(.+)/);
+
+            const phrase = phraseMatch ? phraseMatch[1].trim() : '';
+            const meaningJa = meaningMatch ? meaningMatch[1].trim() : '';
+            const example = exampleMatch ? exampleMatch[1].trim() : '';
+
+            if (!phrase || !meaningJa) {
+              console.log('Required fields not found in issue body');
+              console.log('Issue body:', body);
+              return;
+            }
+
+            // chunks.json を読み込み
+            const filePath = 'chunks.json';
+            let chunks = { version: "1.0.0", updated_at: "", entries: [] };
+            if (fs.existsSync(filePath)) {
+              try {
+                chunks = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+              } catch (e) {
+                console.log('Failed to parse existing chunks.json, creating new one');
+              }
+            }
+
+            // 重複チェック（同じフレーズが既に登録されている場合は更新）
+            const existingIndex = chunks.entries.findIndex(
+              e => e.phrase.toLowerCase() === phrase.toLowerCase()
+            );
+
+            const newEntry = {
+              id: `chunk_${Date.now()}`,
+              phrase: phrase,
+              meaning_ja: meaningJa,
+              ...(example && example !== 'なし' ? { example } : {}),
+              source_issue: issue.number,
+              approved_at: new Date().toISOString()
+            };
+
+            if (existingIndex >= 0) {
+              chunks.entries[existingIndex] = newEntry;
+              console.log(`Updated existing chunk entry for phrase: ${phrase}`);
+            } else {
+              chunks.entries.push(newEntry);
+              console.log(`Added new chunk entry for phrase: ${phrase}`);
+            }
+
+            chunks.updated_at = new Date().toISOString();
+
+            fs.writeFileSync(filePath, JSON.stringify(chunks, null, 2) + '\n');
+            console.log(`Successfully updated chunks.json with ${chunks.entries.length} entries`);
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chunks.json
+          git diff --staged --quiet || git commit -m "chore: add chunk entry from issue #${{ github.event.issue.number }}"
+          git push
