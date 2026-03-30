@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-03-30T03:43:08.515Z",
+  "updated_at": "2026-03-30T03:50:10.391Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -99,6 +99,16 @@
       "post_url": "なし",
       "source_issue": 11,
       "approved_at": "2026-03-30T03:43:08.513Z"
+    },
+    {
+      "id": "override_1774842610390",
+      "type": "correction",
+      "word": "crying",
+      "corrected_meaning": "［名］泣く行為、または誰かが泣く音 [形容詞（名詞の前）］非常に深刻で、緊急の対応が必要な場合",
+      "part_of_speech": "noun/adjective [before noun]",
+      "post_url": "なし",
+      "source_issue": 12,
+      "approved_at": "2026-03-30T03:50:10.390Z"
     }
   ]
 }
