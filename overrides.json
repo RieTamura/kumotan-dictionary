@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-03-30T07:55:10.199Z",
+  "updated_at": "2026-03-30T08:04:49.410Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -119,6 +119,16 @@
       "post_url": "at://did:plc:ilxxgyz7oz7mysber4omeqrg/app.bsky.feed.post/3mib3sry73t2u",
       "source_issue": 72,
       "approved_at": "2026-03-30T07:55:10.197Z"
+    },
+    {
+      "id": "override_1774857889408",
+      "type": "correction",
+      "word": "prime minister",
+      "corrected_meaning": "（国における）政府の指導者、首相、内閣総理大臣",
+      "part_of_speech": "n",
+      "post_url": "at://did:plc:psl3vtmvduvmmy336lqcuhfy/app.bsky.feed.post/3mib5qk7cr22a",
+      "source_issue": 71,
+      "approved_at": "2026-03-30T08:04:49.408Z"
     }
   ]
 }
