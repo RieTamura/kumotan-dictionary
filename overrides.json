@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-03-30T03:50:10.391Z",
+  "updated_at": "2026-03-30T07:55:10.199Z",
   "entries": [
     {
       "id": "override_1770196662129",
@@ -109,6 +109,16 @@
       "post_url": "なし",
       "source_issue": 12,
       "approved_at": "2026-03-30T03:50:10.390Z"
+    },
+    {
+      "id": "override_1774857310197",
+      "type": "correction",
+      "word": "atmosphere",
+      "corrected_meaning": "空気、雰囲気",
+      "part_of_speech": "n",
+      "post_url": "at://did:plc:ilxxgyz7oz7mysber4omeqrg/app.bsky.feed.post/3mib3sry73t2u",
+      "source_issue": 72,
+      "approved_at": "2026-03-30T07:55:10.197Z"
     }
   ]
 }
