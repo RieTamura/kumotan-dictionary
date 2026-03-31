@@ -16,7 +16,7 @@
 
 ## Issueの流れ
 
-```
+```text
 フィードバック投稿 (Bluesky等)
         ↓
   Issue 自動作成
@@ -39,7 +39,7 @@
 
 他の辞書サービスから文章をそのままコピーすることは**著作権侵害になるおそれ**があります。
 
-特に以下のサービスの文章の無断転載は禁止されています：
+特に以下のサービスの文章の無断転載・複製は禁止されています：
 
 - 英辞郎 on the WEB（eow.alc.co.jp）
 - Cambridge Dictionary（dictionary.cambridge.org）
@@ -50,17 +50,19 @@
 ### やってよいこと
 
 - 意味・概念を**自分の言葉で言い換えて**記載する（意味・概念自体は著作権で保護されません）
-- オープンライセンスの辞書の内容を参考にする
+- オープンライセンスの辞書の内容を**参照し、自分の言葉で書き直す**こと
 
 ### 参考にしてよいオープンライセンス辞書
 
-以下の辞書はライセンスの範囲内で内容を参考にできます：
+以下の辞書は、各ライセンスの範囲内で内容を参考にできます。
+基本的には「意味や用例を確認して、自分の文章として書き直す」ようにしてください。
+文章を引用・転載する場合は、**各辞書のライセンス条件（例：出典表記・ライセンス表記・ShareAlike 等）に必ず従ってください**。
 
 | 辞書 | ライセンス | URL |
 |------|-----------|-----|
 | Wiktionary | CC BY-SA 4.0 | https://ja.wiktionary.org/ |
-| JMdict/EDICT | CC BY-SA 3.0 | https://www.edrdg.org/jmdict/j_jmdict.html |
-| WordNet | MIT相当 | https://wordnet.princeton.edu/ |
+| JMdict/EDICT | CC BY-SA 4.0 | https://www.edrdg.org/jmdict/j_jmdict.html |
+| WordNet | WordNet License (Princeton University) | https://wordnet.princeton.edu/license-and-commercial-use |
 
 ### 確認用に使ってよい辞書（コピーは不可）
 
@@ -75,7 +77,7 @@
 
 チャンク（熟語・イディオム）を提案する場合は、以下の形式でIssueを作成してください：
 
-```
+```markdown
 ### チャンク提案 (chunk)
 - **フレーズ**: by the way
 - **日本語の意味**: ところで
