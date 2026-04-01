@@ -45,6 +45,16 @@ jobs:
             const partOfSpeech = posMatch ? posMatch[1].trim() : null;
             const postUrl = postUrlMatch ? postUrlMatch[1].trim() : null;
 
+            // 参照元辞書を抽出し、共通ライセンスマップにマッピング
+            const sourceDictMatch = body.match(/\*\*参照元辞書\*\*:\s*(.+)/);
+            const sourceDictionary = sourceDictMatch ? sourceDictMatch[1].trim() : '自分で作成';
+            const licenseMap = JSON.parse(fs.readFileSync('.github/licenses.json', 'utf8'));
+            if (!(sourceDictionary in licenseMap)) {
+              console.log(`Unknown source dictionary: "${sourceDictionary}". Allowed values: ${Object.keys(licenseMap).join(', ')}`);
+              return;
+            }
+            const licenseInfo = licenseMap[sourceDictionary];
+
             if (!word || !correctedMeaning) {
               console.log('Required fields not found in issue body');
               console.log('Issue body:', body);
@@ -76,6 +86,9 @@ jobs:
               corrected_meaning: correctedMeaning,
               part_of_speech: partOfSpeech,
               post_url: postUrl,
+              source_dictionary: sourceDictionary,
+              license: licenseInfo.license,
+              attribution: licenseInfo.attribution,
               source_issue: issue.number,
               approved_at: new Date().toISOString()
             };

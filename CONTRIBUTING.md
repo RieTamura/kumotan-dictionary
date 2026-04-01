@@ -61,8 +61,31 @@
 | 辞書 | ライセンス | URL |
 |------|-----------|-----|
 | Wiktionary | CC BY-SA 4.0 | https://ja.wiktionary.org/ |
-| JMdict/EDICT | CC BY-SA 4.0 | https://www.edrdg.org/jmdict/j_jmdict.html |
+| JMdict（JMdict/EDICT） | CC BY-SA 4.0 | https://www.edrdg.org/jmdict/j_jmdict.html |
 | WordNet | WordNet License (Princeton University) | https://wordnet.princeton.edu/license-and-commercial-use |
+
+#### 各ライセンスの主な条件
+
+**CC BY-SA 4.0**（Wiktionary・JMdict に適用）
+
+| 条件 | 内容 |
+|------|------|
+| 表示（Attribution） | 著作者名・ライセンス名・ライセンスへのリンクを明記すること |
+| 継承（ShareAlike） | 改変・二次利用する場合は、同一ライセンス（CC BY-SA 4.0）で公開すること |
+| 商用利用 | 条件を満たせば可能 |
+
+> 例：Wiktionary の内容を転載する場合は「出典：Wiktionary contributors（https://ja.wiktionary.org/）, ライセンス：CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/）, 改変あり」と表記し、成果物も CC BY-SA 4.0 で公開する必要があります。
+
+**WordNet License**（WordNet に適用）
+
+| 条件 | 内容 |
+|------|------|
+| 帰属表示 | すべてのコピー・改変物に著作権表示を含めること（"Copyright 2006 Princeton University"） |
+| 引用・クレジット | 利用時は Princeton WordNet を適切に引用・クレジットすること |
+| 商用利用 | 可能（無料） |
+| 保証 | なし（"AS IS" 提供） |
+
+> 例：WordNet を参照した場合は「WordNet 3.0, Copyright 2006 by Princeton University. All rights reserved.」と表記します。
 
 ### 確認用に使ってよい辞書（コピーは不可）
 
@@ -82,7 +105,10 @@
 - **フレーズ**: by the way
 - **日本語の意味**: ところで
 - **例文**: By the way, did you see the news?
+- **参照元辞書**: 自分で作成
 ```
+
+`**参照元辞書**:` には参照した辞書名を記入してください（選択肢: `自分で作成` / `Wiktionary` / `JMdict` / `WordNet`）。
 
 ---
 

@@ -43,6 +43,16 @@ jobs:
             const meaningJa = meaningMatch ? meaningMatch[1].trim() : '';
             const example = exampleMatch ? exampleMatch[1].trim() : '';
 
+            // 参照元辞書を抽出し、共通ライセンスマップにマッピング
+            const sourceDictMatch = body.match(/\*\*参照元辞書\*\*:\s*(.+)/);
+            const sourceDictionary = sourceDictMatch ? sourceDictMatch[1].trim() : '自分で作成';
+            const licenseMap = JSON.parse(fs.readFileSync('.github/licenses.json', 'utf8'));
+            if (!(sourceDictionary in licenseMap)) {
+              console.log(`Unknown source dictionary: "${sourceDictionary}". Allowed values: ${Object.keys(licenseMap).join(', ')}`);
+              return;
+            }
+            const licenseInfo = licenseMap[sourceDictionary];
+
             if (!phrase || !meaningJa) {
               console.log('Required fields not found in issue body');
               console.log('Issue body:', body);
@@ -70,6 +80,9 @@ jobs:
               phrase: phrase,
               meaning_ja: meaningJa,
               ...(example && example !== 'なし' ? { example } : {}),
+              source_dictionary: sourceDictionary,
+              license: licenseInfo.license,
+              attribution: licenseInfo.attribution,
               source_issue: issue.number,
               approved_at: new Date().toISOString()
             };
