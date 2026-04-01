@@ -61,12 +61,12 @@
 | 辞書 | ライセンス | URL |
 |------|-----------|-----|
 | Wiktionary | CC BY-SA 4.0 | https://ja.wiktionary.org/ |
-| JMdict/EDICT | CC BY-SA 4.0 | https://www.edrdg.org/jmdict/j_jmdict.html |
+| JMdict（JMdict/EDICT） | CC BY-SA 4.0 | https://www.edrdg.org/jmdict/j_jmdict.html |
 | WordNet | WordNet License (Princeton University) | https://wordnet.princeton.edu/license-and-commercial-use |
 
 #### 各ライセンスの主な条件
 
-**CC BY-SA 4.0**（Wiktionary・JMdict/EDICT に適用）
+**CC BY-SA 4.0**（Wiktionary・JMdict に適用）
 
 | 条件 | 内容 |
 |------|------|
@@ -74,7 +74,7 @@
 | 継承（ShareAlike） | 改変・二次利用する場合は、同一ライセンス（CC BY-SA 4.0）で公開すること |
 | 商用利用 | 条件を満たせば可能 |
 
-> 例：Wiktionary の内容を転載する場合は「出典：Wiktionary（CC BY-SA 4.0）」と表記し、成果物も CC BY-SA 4.0 で公開する必要があります。
+> 例：Wiktionary の内容を転載する場合は「出典：Wiktionary contributors（https://ja.wiktionary.org/）, ライセンス：CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/）, 改変あり」と表記し、成果物も CC BY-SA 4.0 で公開する必要があります。
 
 **WordNet License**（WordNet に適用）
 
