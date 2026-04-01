@@ -20,26 +20,21 @@ jobs:
           script: |
             const payload = context.payload.client_payload;
 
+            const type = payload.type || 'word_search';
             const word = payload.word || '';
             const expectation = payload.expectation || '';
             const comment = payload.comment || '';
             const partOfSpeech = payload.part_of_speech || '';
             const postUrl = payload.post_url || '';
             const rowIndex = payload.row_index || '';
+            const sourceDict = payload.source_dictionary || '自分で作成';
 
             if (!word) {
               console.log('No word provided, skipping issue creation');
               return;
             }
 
-            const issueBody = [
-              '### 報告内容 (word_search)',
-              '- **対象/件名**: ' + word,
-              '- **詳細/期待内容**: ' + expectation,
-              '- **品詞**: ' + (partOfSpeech || '不明'),
-              '- **投稿リンク**: ' + (postUrl || 'なし'),
-              '- **コメント**: ' + (comment || 'なし'),
-              '',
+            const commonChecklist = [
               '### レビューチェックリスト',
               '- [ ] 他の辞書で意味を確認したか（**他の辞書の文章をそのままコピーしないこと**）',
               '  - ⚠️ 著作権に注意：以下はあくまで「確認用」です。文章をそのままコピーせず、自分の言葉で記載してください',
@@ -49,27 +44,56 @@ jobs:
               '  - https://ja.wiktionary.org/ （Wiktionary / CC BY-SA 4.0 ― 転載時は出典・ライセンス表記＋同一ライセンスでの公開が必要）',
               '  - https://www.edrdg.org/jmdict/j_jmdict.html （JMdict/EDICT / CC BY-SA 4.0 ― 転載時は出典・ライセンス表記＋同一ライセンスでの公開が必要）',
               '  - https://wordnet.princeton.edu/license-and-commercial-use （WordNet / WordNet License ― 利用時は Princeton University の著作権表示・引用が必要）',
+            ];
+
+            const wordSearchBody = [
+              '### 報告内容 (word_search)',
+              '- **対象/件名**: ' + word,
+              '- **詳細/期待内容**: ' + expectation,
+              '- **品詞**: ' + (partOfSpeech || '不明'),
+              '- **投稿リンク**: ' + (postUrl || 'なし'),
+              '- **コメント**: ' + (comment || 'なし'),
+              '',
+              ...commonChecklist,
               '- [ ] 品詞・用途は正しいか',
               '- [ ] 既存のoverridesに同じ単語の修正がないか',
               '  - [overrides.json](https://rietamura.github.io/kumotan-dictionary/overrides.json) をブラウザで開き、対象の単語をページ内検索（Ctrl+F）で確認',
               '- [ ] 参照元辞書を記入したか',
               '',
               '### 参照元辞書',
-              '**参照元辞書**: 自分で作成',
-              '_参照した辞書がある場合は上記を変更してください（選択肢: 自分で作成 / Wiktionary / JMdict / WordNet）_',
+              '**参照元辞書**: ' + sourceDict,
+            ];
+
+            const chunkBody = [
+              '### チャンク提案 (chunk)',
+              '- **フレーズ**: ' + word,
+              '- **日本語の意味**: ' + expectation,
+              '- **コメント**: ' + (comment || 'なし'),
               '',
+              ...commonChecklist,
+              '- [ ] 参照元辞書を記入したか',
+              '',
+              '### 参照元辞書',
+              '**参照元辞書**: ' + sourceDict,
+            ];
+
+            const issueBody = [
+              ...(type === 'chunk' ? chunkBody : wordSearchBody),
               '---',
               '_スプレッドシート行: ' + rowIndex + '_',
               '_このIssueは自動作成されました。内容を確認し、問題なければ「approved」ラベルを付与してください。_',
               '_検索ロジックの改善が必要な場合は「search-improvement」ラベルを付与してください。_'
             ].join('\n');
 
+            const titlePrefixes = { 'chunk': '【チャンク提案】', 'word_search': '【検索不具合】' };
+            const titlePrefix = titlePrefixes[type] || '【フィードバック】';
+
             const issue = await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: '【検索不具合】' + word,
+              title: titlePrefix + word,
               body: issueBody,
-              labels: ['word_search']
+              labels: [type]
             });
 
             console.log('Created issue #' + issue.data.number + ': ' + issue.data.html_url);
