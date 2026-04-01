@@ -48,7 +48,7 @@ jobs:
               '  - ✅ 以下はオープンライセンス辞書です。内容を「確認・参考」に利用できますが、本文を引用・転載する場合は各辞書のライセンス条件（CC BY-SA 等）に従ってください',
               '  - https://ja.wiktionary.org/ （Wiktionary / CC BY-SA 4.0）',
               '  - https://www.edrdg.org/jmdict/j_jmdict.html （JMdict/EDICT / CC BY-SA 4.0）',
-              '  - https://wordnet.princeton.edu/ （WordNet / WordNet License (Princeton University)）',
+              '  - https://wordnet.princeton.edu/license-and-commercial-use （WordNet / WordNet License (Princeton University)）',
               '- [ ] 品詞・用途は正しいか',
               '- [ ] 既存のoverridesに同じ単語の修正がないか',
               '  - [overrides.json](https://rietamura.github.io/kumotan-dictionary/overrides.json) をブラウザで開き、対象の単語をページ内検索（Ctrl+F）で確認',
