@@ -20,7 +20,9 @@ jobs:
           script: |
             const payload = context.payload.client_payload;
 
-            const type = payload.type || 'word_search';
+            const allowedTypes = ['word_search', 'chunk'];
+            const rawType = payload.type || 'word_search';
+            const type = allowedTypes.includes(rawType) ? rawType : 'word_search';
             const word = payload.word || '';
             const expectation = payload.expectation || '';
             const comment = payload.comment || '';
@@ -77,12 +79,18 @@ jobs:
               '**参照元辞書**: ' + sourceDict,
             ];
 
-            const issueBody = [
-              ...(type === 'chunk' ? chunkBody : wordSearchBody),
+            const footerLines = [
               '---',
               '_スプレッドシート行: ' + rowIndex + '_',
               '_このIssueは自動作成されました。内容を確認し、問題なければ「approved」ラベルを付与してください。_',
-              '_検索ロジックの改善が必要な場合は「search-improvement」ラベルを付与してください。_'
+            ];
+            if (type === 'word_search') {
+              footerLines.push('_検索ロジックの改善が必要な場合は「search-improvement」ラベルを付与してください。_');
+            }
+
+            const issueBody = [
+              ...(type === 'chunk' ? chunkBody : wordSearchBody),
+              ...footerLines,
             ].join('\n');
 
             const titlePrefixes = { 'chunk': '【チャンク提案】', 'word_search': '【検索不具合】' };
