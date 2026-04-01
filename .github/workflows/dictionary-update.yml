@@ -45,6 +45,17 @@ jobs:
             const partOfSpeech = posMatch ? posMatch[1].trim() : null;
             const postUrl = postUrlMatch ? postUrlMatch[1].trim() : null;
 
+            // 参照元辞書を抽出し、ライセンス情報にマッピング
+            const sourceDictMatch = body.match(/\*\*参照元辞書\*\*:\s*(.+)/);
+            const sourceDictionary = sourceDictMatch ? sourceDictMatch[1].trim() : '自分で作成';
+            const licenseMap = {
+              'Wiktionary':    { license: 'CC BY-SA 4.0', attribution: 'Wiktionary contributors' },
+              'JMdict':        { license: 'CC BY-SA 4.0', attribution: 'Electronic Dictionary Research and Development Group' },
+              'JMdict/EDICT':  { license: 'CC BY-SA 4.0', attribution: 'Electronic Dictionary Research and Development Group' },
+              'WordNet':       { license: 'WordNet License', attribution: 'Copyright 2006 Princeton University. All rights reserved.' },
+            };
+            const licenseInfo = licenseMap[sourceDictionary] || { license: null, attribution: null };
+
             if (!word || !correctedMeaning) {
               console.log('Required fields not found in issue body');
               console.log('Issue body:', body);
@@ -76,6 +87,9 @@ jobs:
               corrected_meaning: correctedMeaning,
               part_of_speech: partOfSpeech,
               post_url: postUrl,
+              source_dictionary: sourceDictionary,
+              license: licenseInfo.license,
+              attribution: licenseInfo.attribution,
               source_issue: issue.number,
               approved_at: new Date().toISOString()
             };
